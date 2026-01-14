@@ -16,7 +16,7 @@ const { TextArea } = Input;
 const useStyles = createStyles(({ css, token }) => ({
   container: css`
     padding: 16px;
-    background: #2a2a2a;
+    background: #1e1e1e;
     border-radius: 24px;
     border: none;
     display: flex;
