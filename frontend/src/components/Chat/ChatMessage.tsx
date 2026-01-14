@@ -22,16 +22,18 @@ const useStyles = createStyles(({ css, token }) => ({
   message: css`
     display: flex;
     gap: 16px;
-    padding: 16px;
-    border-radius: 12px;
-    background: ${token.colorBgContainer};
+    padding: 24px;
+    border-radius: 24px;
+    background: transparent;
   `,
   userMessage: css`
-    background: ${token.colorPrimaryBg};
+    background: #1e4bba;
+    color: white;
   `,
   assistantMessage: css`
-    background: ${token.colorBgContainer};
-    border: 1px solid ${token.colorBorderSecondary};
+    background: #2a2a2a;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   `,
   avatar: css`
     flex-shrink: 0;
