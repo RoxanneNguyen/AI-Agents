@@ -11,10 +11,8 @@ const useStyles = createStyles(({ css }) => ({
   layout: css`
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
     background: radial-gradient(110% 80% at 50% 0%, #1e4bba 0%, #0a0a0a 100%);
+    min-height: 100vh;
   `,
   container: css`
     display: flex;

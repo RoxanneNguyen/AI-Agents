@@ -25,13 +25,14 @@ const useStyles = createStyles(({ css, token }) => ({
     padding: 24px;
     border-radius: 24px;
     background: transparent;
+    width: 100%;
   `,
   userMessage: css`
-    background: #1e4bba;
+    background: #111111;
     color: white;
   `,
   assistantMessage: css`
-    background: #0e1629;
+    background: #111111;
     border: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   `,
