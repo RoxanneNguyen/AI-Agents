@@ -16,13 +16,13 @@ const { TextArea } = Input;
 const useStyles = createStyles(({ css, token }) => ({
   container: css`
     padding: 16px;
-    background: #fafafa;
+    background: #2a2a2a;
     border-radius: 24px;
     border: none;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   `,
   inputWrapper: css`
     display: flex;
@@ -42,10 +42,10 @@ const useStyles = createStyles(({ css, token }) => ({
     font-size: 16px;
     line-height: 1.6;
     min-height: 60px;
-    color: #1a1a1a;
+    color: #ffffff;
 
     &::placeholder {
-      color: #888888;
+      color: rgba(255, 255, 255, 0.45);
     }
   `,
   footer: css`
@@ -65,14 +65,14 @@ const useStyles = createStyles(({ css, token }) => ({
     padding: 6px 12px;
     border-radius: 12px;
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.05);
-    color: #666666;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.65);
     border: none;
     transition: all 0.2s;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.1);
-      color: #333333;
+      background: transparent;
+      color: #ffffff;
     }
   `,
   sendButton: css`
@@ -88,8 +88,8 @@ const useStyles = createStyles(({ css, token }) => ({
     cursor: pointer;
     
     &:disabled {
-      background: rgba(0, 0, 0, 0.1);
-      color: #999999;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.25);
     }
   `,
 }));
