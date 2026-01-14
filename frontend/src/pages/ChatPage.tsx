@@ -172,6 +172,7 @@ export const ChatPage: React.FC = () => {
             flexDirection: 'column', 
             justifyContent: 'center', 
             alignItems: 'center',
+            paddingBottom: '10vh'
           }}>
              <WelcomeScreen />
              <div style={{ width: '100%', maxWidth: '800px' }}>
