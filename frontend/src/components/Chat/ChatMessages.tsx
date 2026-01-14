@@ -14,7 +14,7 @@ const useStyles = createStyles(({ css }) => ({
     padding: 24px;
   `,
   messagesWrapper: css`
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
