@@ -1,0 +1,39 @@
+# Agno AI Agent Framework
+agno>=1.0.0
+
+# FastAPI for API endpoints
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# WebSocket support
+websockets>=12.0
+
+# OpenAI integration
+openai>=1.12.0
+
+# Data Analysis
+pandas>=2.2.0
+numpy>=1.26.0
+matplotlib>=3.8.0
+plotly>=5.18.0
+
+# Web Browser Automation
+playwright>=1.41.0
+beautifulsoup4>=4.12.0
+httpx>=0.26.0
+
+# Document Processing
+python-docx>=1.1.0
+markdown>=3.5.0
+jinja2>=3.1.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.6.0
+pydantic-settings>=2.1.0
+loguru>=0.7.0
+aiofiles>=23.2.0
+
+# Database (optional - for persistence)
+sqlalchemy>=2.0.0
+aiosqlite>=0.19.0
