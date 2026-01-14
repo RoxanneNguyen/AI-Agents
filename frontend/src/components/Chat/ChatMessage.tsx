@@ -32,9 +32,10 @@ const useStyles = createStyles(({ css, token }) => ({
     color: white;
   `,
   assistantMessage: css`
-    background: #111111;
+    background: transparent;
     border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
+    padding-left: 0;
   `,
   avatar: css`
     flex-shrink: 0;
