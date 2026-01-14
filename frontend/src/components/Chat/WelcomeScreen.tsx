@@ -10,11 +10,11 @@ const useStyles = createStyles(({ css, token }) => ({
   container: css`
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 40px 24px 12px;
   `,
   header: css`
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 24px;
   `,
 
   title: css`

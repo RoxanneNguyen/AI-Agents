@@ -14,7 +14,7 @@ import type { Message, Artifact } from "../types";
 const useStyles = createStyles(({ css }) => ({
   container: css`
     display: flex;
-    height: 100%;
+    flex: 1;
     overflow: hidden;
   `,
   chatSection: css`
@@ -172,7 +172,6 @@ export const ChatPage: React.FC = () => {
             flexDirection: 'column', 
             justifyContent: 'center', 
             alignItems: 'center',
-            paddingBottom: '20vh'
           }}>
              <WelcomeScreen />
              <div style={{ width: '100%', maxWidth: '800px' }}>
