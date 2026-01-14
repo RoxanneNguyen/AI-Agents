@@ -38,6 +38,7 @@ const useStyles = createStyles(({ css, token }) => ({
     background: transparent;
     border: none;
     box-shadow: none !important;
+    outline: none !important;
     padding: 0;
     font-size: 16px;
     line-height: 1.6;
@@ -46,6 +47,12 @@ const useStyles = createStyles(({ css, token }) => ({
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.45);
+    }
+
+    &:hover, &:focus, &:active {
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
     }
   `,
   footer: css`
