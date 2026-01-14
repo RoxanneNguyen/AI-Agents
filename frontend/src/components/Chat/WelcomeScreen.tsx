@@ -21,9 +21,8 @@ const useStyles = createStyles(({ css, token }) => ({
     font-size: 42px;
     font-weight: 800;
     margin-bottom: 8px;
-    background: linear-gradient(135deg, #7fe1ff 0%, #3b76ff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: transparent;
+    color: #ffffff;
     letter-spacing: -0.5px;
   `,
   subtitle: css`
