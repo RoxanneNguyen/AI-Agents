@@ -185,7 +185,14 @@ export const ChatPage: React.FC = () => {
               messages={messages}
               onArtifactClick={handleArtifactClick}
             />
-            <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+            <div style={{ 
+              width: '100%', 
+              maxWidth: '800px', 
+              margin: '0 auto',
+              paddingBottom: '24px'
+            }}>
+              <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+            </div>
           </>
         )}
       </div>
