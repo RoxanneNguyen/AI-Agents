@@ -8,48 +8,72 @@ import { Button, Input, Tooltip } from "antd";
 import {
   SendOutlined,
   StopOutlined,
+  PaperClipOutlined,
 } from "@ant-design/icons";
 
 const { TextArea } = Input;
 
 const useStyles = createStyles(({ css, token }) => ({
   container: css`
-    padding: 16px 24px 24px;
-    background: transparent;
-    border-top: none;
+    padding: 16px;
+    background: ${token.colorBgElevated};
+    border-radius: 24px;
+    border: 1px solid ${token.colorBorderSecondary};
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   `,
   inputWrapper: css`
     display: flex;
-    gap: 12px;
-    align-items: flex-end;
-    max-width: 900px;
+    flex-direction: column;
+    width: 100%;
     margin: 0 auto;
   `,
   textAreaWrapper: css`
-    flex: 1;
-    position: relative;
+    width: 100%;
   `,
   textArea: css`
     resize: none;
-    border-radius: 24px;
-    padding: 12px 16px;
-    padding-right: 80px;
-    font-size: 15px;
-    line-height: 1.5;
-    min-height: 52px;
-    max-height: 200px;
+    background: transparent;
+    border: none;
+    box-shadow: none !important;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 60px;
+    color: ${token.colorText};
 
-    &:focus {
-      box-shadow: 0 0 0 2px ${token.colorPrimaryBg};
+    &::placeholder {
+      color: ${token.colorTextSecondary};
     }
   `,
-  actions: css`
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
+  footer: css`
     display: flex;
-    gap: 4px;
+    justify-content: space-between;
     align-items: center;
+    padding-top: 8px;
+  `,
+  leftActions: css`
+    display: flex;
+    gap: 8px;
+  `,
+  attachButton: css`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    color: ${token.colorTextSecondary};
+    border: none;
+    transition: all 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: ${token.colorText};
+    }
   `,
   sendButton: css`
     width: 36px;
@@ -58,12 +82,15 @@ const useStyles = createStyles(({ css, token }) => ({
     display: flex;
     align-items: center;
     justify-content: center;
-  `,
-  hint: css`
-    text-align: center;
-    font-size: 12px;
-    color: ${token.colorTextSecondary};
-    margin-top: 8px;
+    background: ${token.colorPrimary};
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+    &:disabled {
+      background: ${token.colorBgContainer};
+      color: ${token.colorTextDisabled};
+    }
   `,
 }));
 
@@ -116,42 +143,33 @@ export const ChatInput: React.FC<ChatInputProps> = ({
         <div className={styles.textAreaWrapper}>
           <TextArea
             ref={textAreaRef}
-            className={styles.textArea}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask me anything... I can browse the web, analyze data, and create documents."
-            autoSize={{ minRows: 1, maxRows: 6 }}
-            disabled={disabled}
+            autoSize={{ minRows: 2, maxRows: 12 }}
+            className={styles.textArea}
+            disabled={isLoading || disabled}
           />
-          <div className={styles.actions}>
-
-            {isLoading ? (
-              <Tooltip title="Stop generation">
-                <Button
-                  className={styles.sendButton}
-                  type="primary"
-                  danger
-                  icon={<StopOutlined />}
-                  onClick={onCancel}
-                />
-              </Tooltip>
-            ) : (
-              <Tooltip title="Send message (Enter)">
-                <Button
-                  className={styles.sendButton}
-                  type="primary"
-                  icon={<SendOutlined />}
-                  onClick={handleSend}
-                  disabled={!message.trim() || disabled}
-                />
-              </Tooltip>
-            )}
-          </div>
         </div>
-      </div>
-      <div className={styles.hint}>
-        Press Enter to send, Shift+Enter for new line
+        
+        <div className={styles.footer}>
+          <div className={styles.leftActions}>
+             <button className={styles.attachButton}>
+               <PaperClipOutlined />
+               <span>Attach</span>
+             </button>
+          </div>
+          
+          <Button
+            type="primary"
+            className={styles.sendButton}
+            onClick={handleSend}
+            disabled={!message.trim() || isLoading || disabled}
+            loading={isLoading}
+            icon={!isLoading && <SendOutlined />}
+          />
+        </div>
       </div>
     </div>
   );
