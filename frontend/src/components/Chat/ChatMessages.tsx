@@ -5,10 +5,9 @@
 import React, { useRef, useEffect } from "react";
 import { createStyles } from "antd-style";
 import { ChatMessage } from "./ChatMessage";
-import { WelcomeScreen } from "./WelcomeScreen";
 import type { Message } from "../../types";
 
-const useStyles = createStyles(({ css, token }) => ({
+const useStyles = createStyles(({ css }) => ({
   container: css`
     flex: 1;
     overflow-y: auto;
@@ -43,11 +42,7 @@ export const ChatMessages: React.FC<ChatMessagesProps> = ({
   }, [messages]);
 
   if (messages.length === 0) {
-    return (
-      <div className={styles.container}>
-        <WelcomeScreen />
-      </div>
-    );
+    return null;
   }
 
   return (

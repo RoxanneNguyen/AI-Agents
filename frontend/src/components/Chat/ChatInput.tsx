@@ -7,8 +7,6 @@ import { createStyles } from "antd-style";
 import { Button, Input, Tooltip } from "antd";
 import {
   SendOutlined,
-  PaperClipOutlined,
-  AudioOutlined,
   StopOutlined,
 } from "@ant-design/icons";
 
@@ -33,7 +31,7 @@ const useStyles = createStyles(({ css, token }) => ({
   `,
   textArea: css`
     resize: none;
-    border-radius: 12px;
+    border-radius: 24px;
     padding: 12px 16px;
     padding-right: 80px;
     font-size: 15px;
@@ -127,14 +125,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
             disabled={disabled}
           />
           <div className={styles.actions}>
-            <Tooltip title="Attach file">
-              <Button
-                type="text"
-                icon={<PaperClipOutlined />}
-                size="small"
-                disabled={isLoading}
-              />
-            </Tooltip>
+
             {isLoading ? (
               <Tooltip title="Stop generation">
                 <Button

@@ -4,13 +4,7 @@
 
 import React from "react";
 import { createStyles } from "antd-style";
-import { Card } from "antd";
-import {
-  GlobalOutlined,
-  BarChartOutlined,
-  FileTextOutlined,
-  RocketOutlined,
-} from "@ant-design/icons";
+
 
 const useStyles = createStyles(({ css, token }) => ({
   container: css`
@@ -22,16 +16,15 @@ const useStyles = createStyles(({ css, token }) => ({
     text-align: center;
     margin-bottom: 48px;
   `,
-  logo: css`
-    font-size: 64px;
-    margin-bottom: 16px;
-    display: block;
-  `,
+
   title: css`
-    font-size: 32px;
-    font-weight: 700;
-    color: ${token.colorText};
+    font-size: 42px;
+    font-weight: 800;
     margin-bottom: 8px;
+    background: linear-gradient(135deg, #7fe1ff 0%, #3b76ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
   `,
   subtitle: css`
     font-size: 16px;
@@ -112,34 +105,7 @@ const useStyles = createStyles(({ css, token }) => ({
   `,
 }));
 
-const capabilities = [
-  {
-    icon: GlobalOutlined,
-    title: "Web Browser",
-    description:
-      "Search and browse the web to gather information and research topics.",
-  },
-  {
-    icon: BarChartOutlined,
-    title: "Data Analysis",
-    description:
-      "Process data, perform calculations, and create visualizations.",
-  },
-  {
-    icon: FileTextOutlined,
-    title: "Document Editor",
-    description: "Create, edit, and format documents, reports, and code files.",
-  },
-];
 
-const examples = [
-  "Research the latest AI trends and summarize them",
-  "Analyze this CSV data and create a chart",
-  "Write a Python script to process files",
-  "Create a project README document",
-  "Compare features of React vs Vue",
-  "Generate a weekly report template",
-];
 
 export const WelcomeScreen: React.FC = () => {
   const { styles } = useStyles();
@@ -147,36 +113,11 @@ export const WelcomeScreen: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <span className={styles.logo}>🤖</span>
         <h1 className={styles.title}>Welcome to AI Agents Platform</h1>
         <p className={styles.subtitle}>
           I'm Atlas, your AI assistant. I can browse the web, analyze data, and
           create documents. Ask me anything or give me a task to complete.
         </p>
-      </div>
-
-      <div className={styles.capabilities}>
-        {capabilities.map((cap) => (
-          <div key={cap.title} className={styles.capability}>
-            <cap.icon className={styles.capabilityIcon} />
-            <div className={styles.capabilityTitle}>{cap.title}</div>
-            <div className={styles.capabilityDesc}>{cap.description}</div>
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.examples}>
-        <div className={styles.examplesTitle}>
-          <RocketOutlined />
-          Try asking me...
-        </div>
-        <div className={styles.examplesList}>
-          {examples.map((example) => (
-            <div key={example} className={styles.example}>
-              {example}
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );

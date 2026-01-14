@@ -2,16 +2,16 @@
  * Chat Page - Main chat interface
  */
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import { createStyles } from "antd-style";
 import { message } from "antd";
-import { ChatInput, ChatMessages } from "../components/Chat";
+import { ChatInput, ChatMessages, WelcomeScreen } from "../components/Chat";
 import { ArtifactViewer } from "../components/Artifacts";
 import { useChatStore } from "../store";
 import { api } from "../services";
 import type { Message, Artifact } from "../types";
 
-const useStyles = createStyles(({ css, token }) => ({
+const useStyles = createStyles(({ css }) => ({
   container: css`
     display: flex;
     height: 100%;
@@ -159,14 +159,35 @@ export const ChatPage: React.FC = () => {
     setSelectedArtifact(null);
   }, [setSelectedArtifact]);
 
+  // Center style for empty state
+  const isEmpty = messages.length === 0;
+
   return (
     <div className={styles.container}>
       <div className={styles.chatSection}>
-        <ChatMessages
-          messages={messages}
-          onArtifactClick={handleArtifactClick}
-        />
-        <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+        {isEmpty ? (
+          <div style={{ 
+            flex: 1, 
+            display: 'flex', 
+            flexDirection: 'column', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            paddingBottom: '20vh'
+          }}>
+             <WelcomeScreen />
+             <div style={{ width: '100%', maxWidth: '800px' }}>
+                <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+             </div>
+          </div>
+        ) : (
+          <>
+            <ChatMessages
+              messages={messages}
+              onArtifactClick={handleArtifactClick}
+            />
+            <ChatInput onSend={handleSendMessage} isLoading={isLoading} />
+          </>
+        )}
       </div>
 
       {selectedArtifact && (
